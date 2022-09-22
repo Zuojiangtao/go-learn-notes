@@ -1,0 +1,14 @@
+{
+  "title": "Go学习记录",
+  "description": "记录自己的Go学习历程",
+  "author": "ZuoJiangtao",
+  "language": "zh-hans",
+  "plugins": [
+    "github@^2.0.0"
+  ],
+  "pluginsConfig": {
+    "github":{
+      "url": "https://github.com/Zuojiangtao/go-learn-notes"
+    }
+  }
+}
