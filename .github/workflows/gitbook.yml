@@ -2,9 +2,8 @@ name: Gitbook
 
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    branches:
+      - main
 
 jobs:
 
@@ -12,13 +11,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout 🛎️
-      uses: actions/checkout@v3
-      with:
-        persist-credentials: false
+      uses: actions/checkout@v2
 
-    - name: Build 🔧 and Deploy 🚀
+    - name: Deploy 🚀
       uses: ZanderZhao/gitbook-action@v1.2.4
       with:
-        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        BRANCH: gh-pages
-        FOLDER: _book
+        token: ${{ secrets.ACCESS_TOKEN }}
+        publish_branch: gh-pages
+        source_dir: _book
