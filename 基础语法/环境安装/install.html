@@ -1,0 +1,447 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>环境安装 · Go学习记录</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="ZuoJiangtao">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../数据类型/datatype.html" />
+    
+    
+    <link rel="prev" href="../../" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">前言</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Post
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">基础语法</li>
+        
+        
+    
+        <li class="chapter active" data-level="2.1" data-path="install.html">
+            
+                <a href="install.html">
+            
+                    
+                    环境安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../数据类型/datatype.html">
+            
+                <a href="../数据类型/datatype.html">
+            
+                    
+                    数据类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../流程控制/flow.html">
+            
+                <a href="../流程控制/flow.html">
+            
+                    
+                    流程控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="../变量/var.html">
+            
+                <a href="../变量/var.html">
+            
+                    
+                    变量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="../常量/const.html">
+            
+                <a href="../常量/const.html">
+            
+                    
+                    常量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="../变量作用域/scope.html">
+            
+                <a href="../变量作用域/scope.html">
+            
+                    
+                    变量作用域
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="../数组和切片/array_slice.html">
+            
+                <a href="../数组和切片/array_slice.html">
+            
+                    
+                    数组和切片
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >环境安装</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <p>&#x8981;&#x7528;Go&#x8BED;&#x8A00;&#x6765;&#x8FDB;&#x884C;&#x5F00;&#x53D1;&#xFF0C;&#x9700;&#x8981;&#x5148;&#x642D;&#x5EFA;&#x5F00;&#x53D1;&#x73AF;&#x5883;&#x3002;Go &#x8BED;&#x8A00;&#x652F;&#x6301;&#x4EE5;&#x4E0B;&#x7CFB;&#x7EDF;&#xFF1A;</p>
+<ul>
+<li>Linux</li>
+<li>FreeBSD</li>
+<li>Mac OS</li>
+<li>Windows</li>
+</ul>
+<p>&#x9996;&#x5148;&#x9700;&#x8981;&#x4E0B;&#x8F7D;Go&#x8BED;&#x8A00;&#x5B89;&#x88C5;&#x5305;&#xFF0C;Go&#x8BED;&#x8A00;&#x7684;&#x5B89;&#x88C5;&#x5305;&#x4E0B;&#x8F7D;&#x5730;&#x5740;&#x4E3A;&#xFF1A;<a href="https://golang.org/dl/" target="_blank">https://golang.org/dl/</a> &#xFF0C; &#x56FD;&#x5185;&#x53EF;&#x4EE5;&#x6B63;&#x5E38;&#x4E0B;&#x8F7D;&#x5730;&#x5740;&#xFF1A;<a href="https://golang.google.cn/dl/" target="_blank">https://golang.google.cn/dl/</a></p>
+<p><strong>&#x6E90;&#x7801;&#x7F16;&#x8BD1;&#x5B89;&#x88C5;</strong></p>
+<p>Go&#x8BED;&#x8A00;&#x662F;&#x8C37;&#x6B4C;2009&#x53D1;&#x5E03;&#x7684;&#x7B2C;&#x4E8C;&#x6B3E;&#x5F00;&#x6E90;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#x3002;&#x7ECF;&#x8FC7;&#x51E0;&#x5E74;&#x7684;&#x7248;&#x672C;&#x66F4;&#x8FED;&#xFF0C;&#x76EE;&#x524D;Go&#x5DF2;&#x7ECF;&#x53D1;&#x5E03;1.19&#x7248;&#x672C;&#xFF0C;UNIX/Linux/Mac OS X&#xFF0C;&#x548C; FreeBSD&#x7CFB;&#x7EDF;&#x4E0B;&#x53EF;&#x4F7F;&#x7528;&#x5982;&#x4E0B;&#x6E90;&#x7801;&#x5B89;&#x88C5;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<p>&#xFF08;1&#xFF09;&#x4E0B;&#x8F7D;&#x6E90;&#x7801;&#x5305;&#xFF1A;<a href="https://golang.google.cn/dl/go1.11.1.linux-amd64.tar.gz" target="_blank">https://golang.google.cn/dl/go1.11.1.linux-amd64.tar.gz</a>
+&#xFF08;2&#xFF09;&#x5C06;&#x4E0B;&#x8F7D;&#x7684;&#x6E90;&#x7801;&#x5305;&#x89E3;&#x538B;&#x81F3; /usr/local&#x76EE;&#x5F55;&#xFF1A;
+tar -C /usr/local -xzf go1.19.1.linux-amd64.tar.gz
+&#xFF08;3&#xFF09;&#x5C06; /usr/local/go/bin &#x76EE;&#x5F55;&#x6DFB;&#x52A0;&#x81F3;PATH&#x73AF;&#x5883;&#x53D8;&#x91CF;&#xFF1A;
+export PATH=$PATH:/usr/local/go/bin
+&#xFF08;4&#xFF09;&#x8BBE;&#x7F6E;GOPATH&#xFF0C;GOROOT&#x73AF;&#x5883;&#x53D8;&#x91CF;&#xFF1A;
+GOPATH&#x662F;&#x5DE5;&#x4F5C;&#x76EE;&#x5F55;&#xFF0C;GOROOT&#x4E3A;Go&#x7684;&#x5B89;&#x88C5;&#x76EE;&#x5F55;&#xFF0C;&#x8FD9;&#x91CC;&#x4E3A;/usr/local/go/</p>
+<blockquote>
+<p>&#x6CE8;&#x610F;&#xFF1A;MAC&#x7CFB;&#x7EDF;&#x4E0B;&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; .pkg &#x7ED3;&#x5C3E;&#x7684;&#x5B89;&#x88C5;&#x5305;&#x76F4;&#x63A5;&#x53CC;&#x51FB;&#x6765;&#x5B8C;&#x6210;&#x5B89;&#x88C5;&#xFF0C;&#x5B89;&#x88C5;&#x76EE;&#x5F55;&#x5728; /usr/local/go/ &#x4E0B;&#x3002;</p>
+</blockquote>
+<p><strong>Windows&#x7CFB;&#x7EDF;&#x4E0B;&#x5B89;&#x88C5;</strong></p>
+<p>Windows&#x7CFB;&#x7EDF;&#x53EF;&#x4EE5;&#x9009;&#x62E9;go1.19.1.windows-amd64.msi&#xFF0C;&#x53CC;&#x51FB;&#x8FD0;&#x884C;&#x7A0B;&#x5E8F;&#x6839;&#x636E;&#x63D0;&#x793A;&#x6765;&#x64CD;&#x4F5C;&#x3002;
+&#x5730;&#x5740;&#xFF1A;<a href="https://dl.google.com/go/go1.19.1.windows-amd64.msi" target="_blank">https://dl.google.com/go/go1.19.1.windows-amd64.msi</a></p>
+<p>&#x4E0B;&#x8F7D;&#x4E4B;&#x540E;&#x76F4;&#x63A5;&#x70B9;&#x51FB;&#x5B89;&#x88C5;&#xFF0C;&#x4E00;&#x6B65;&#x6B65;&#x7EE7;&#x7EED;&#x5373;&#x53EF;&#x3002;</p>
+<blockquote>
+<p>GOPATH&#x662F;&#x6211;&#x4EEC;&#x7684;&#x5DE5;&#x4F5C;&#x76EE;&#x5F55;&#xFF0C;&#x53EF;&#x4EE5;&#x6709;&#x591A;&#x4E2A;&#xFF0C;&#x7528;&#x5206;&#x53F7;&#x9694;&#x5F00;&#x3002;</p>
+<p>GOROOT&#x4E3A;Go&#x7684;&#x5B89;&#x88C5;&#x76EE;&#x5F55;&#x3002;</p>
+</blockquote>
+<p>Win+R&#x6253;&#x5F00;CMD&#xFF08;&#x6CE8;&#x610F;&#xFF1A;&#x8BBE;&#x7F6E;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x540E;&#x9700;&#x8981;&#x91CD;&#x65B0;&#x6253;&#x5F00;CMD&#xFF09;&#xFF0C;&#x8F93;&#x5165; go &#xFF0C;&#x5982;&#x4E0B;&#x663E;&#x793A;&#x8BF4;&#x660E;Go&#x8BED;&#x8A00;&#x8FD0;&#x884C;&#x73AF;&#x5883;&#x5DF2;&#x7ECF;&#x5B89;&#x88C5;&#x6210;&#x529F;&#xFF1A;</p>
+<pre><code class="lang-markdown">Go is a tool for managing Go source code.
+
+Usage:
+
+<span class="hljs-code">        go &lt;command&gt; [arguments]</span>
+
+The commands are:
+
+<span class="hljs-code">        bug         start a bug report</span>
+<span class="hljs-code">        build       compile packages and dependencies</span>
+<span class="hljs-code">        clean       remove object files and cached files</span>
+<span class="hljs-code">        doc         show documentation for package or symbol</span>
+<span class="hljs-code">        env         print Go environment information</span>
+<span class="hljs-code">        fix         update packages to use new APIs</span>
+<span class="hljs-code">        fmt         gofmt (reformat) package sources</span>
+<span class="hljs-code">        generate    generate Go files by processing source</span>
+<span class="hljs-code">        get         add dependencies to current module and install them</span>
+<span class="hljs-code">        install     compile and install packages and dependencies</span>
+<span class="hljs-code">        list        list packages or modules</span>
+<span class="hljs-code">        mod         module maintenance</span>
+<span class="hljs-code">        work        workspace maintenance</span>
+<span class="hljs-code">        run         compile and run Go program</span>
+<span class="hljs-code">        test        test packages</span>
+<span class="hljs-code">        tool        run specified go tool</span>
+<span class="hljs-code">        version     print Go version</span>
+<span class="hljs-code">        vet         report likely mistakes in packages</span>
+
+Use &quot;go help <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">command</span>&gt;</span></span>&quot; for more information about a command.
+
+Additional help topics:
+
+<span class="hljs-code">        buildconstraint build constraints</span>
+<span class="hljs-code">        buildmode       build modes</span>
+<span class="hljs-code">        c               calling between Go and C</span>
+<span class="hljs-code">        cache           build and test caching</span>
+<span class="hljs-code">        environment     environment variables</span>
+<span class="hljs-code">        filetype        file types</span>
+<span class="hljs-code">        go.mod          the go.mod file</span>
+<span class="hljs-code">        gopath          GOPATH environment variable</span>
+<span class="hljs-code">        gopath-get      legacy GOPATH go get</span>
+<span class="hljs-code">        goproxy         module proxy protocol</span>
+<span class="hljs-code">        importpath      import path syntax</span>
+<span class="hljs-code">        modules         modules, module versions, and more</span>
+<span class="hljs-code">        module-get      module-aware go get</span>
+<span class="hljs-code">        module-auth     module authentication using go.sum</span>
+<span class="hljs-code">        packages        package lists and patterns</span>
+<span class="hljs-code">        private         configuration for downloading non-public code</span>
+<span class="hljs-code">        testflag        testing flags</span>
+<span class="hljs-code">        testfunc        testing functions</span>
+<span class="hljs-code">        vcs             controlling version control with GOVCS</span>
+
+Use &quot;go help <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">topic</span>&gt;</span></span>&quot; for more information about that topic.
+</code></pre>
+<p>&#x53E6;&#x5916;&#xFF0C;&#x6211;&#x4EEC;&#x8F93;&#x5165;go version&#xFF0C;&#x53EF;&#x770B;&#x5230;&#x6211;&#x4EEC;&#x5B89;&#x88C5;&#x7684;Go&#x7248;&#x672C;&#xFF0C;&#x5982;&#x56FE;&#x6240;&#x793A;&#xFF1A;</p>
+<p><img src="img.png" alt="go.png"></p>
+<p>GOPATH&#x5141;&#x8BB8;&#x591A;&#x4E2A;&#x76EE;&#x5F55;&#xFF0C;&#x5F53;&#x6709;&#x591A;&#x4E2A;&#x76EE;&#x5F55;&#x65F6;&#xFF0C;&#x8BF7;&#x6CE8;&#x610F;&#x5206;&#x9694;&#x7B26;&#xFF0C;&#x591A;&#x4E2A;&#x76EE;&#x5F55;&#x7684;&#x65F6;&#x5019;Windows&#x662F;&#x5206;&#x53F7;;</p>
+<p>&#x5F53;&#x6709;&#x591A;&#x4E2A;GOPATH&#x65F6;&#x9ED8;&#x8BA4;&#x5C06;go get&#x83B7;&#x53D6;&#x7684;&#x5305;&#x5B58;&#x653E;&#x5728;&#x7B2C;&#x4E00;&#x4E2A;&#x76EE;&#x5F55;&#x4E0B;&#x3002;</p>
+<p>GOPATH&#x76EE;&#x5F55;&#x7EA6;&#x5B9A;&#x6709;&#x4E09;&#x4E2A;&#x5B50;&#x76EE;&#x5F55;</p>
+<ul>
+<li>src&#x5B58;&#x653E;&#x6E90;&#x4EE3;&#x7801;(&#x6BD4;&#x5982;&#xFF1A;.go .c .h .s&#x7B49;)   &#x6309;&#x7167;Go &#x9ED8;&#x8BA4;&#x7EA6;&#x5B9A;&#xFF0C;go run&#xFF0C;go install&#x7B49;&#x547D;&#x4EE4;&#x7684;&#x5F53;&#x524D;&#x5DE5;&#x4F5C;&#x8DEF;&#x5F84;&#xFF08;&#x5373;&#x5728;&#x6B64;&#x8DEF;&#x5F84;&#x4E0B;&#x6267;&#x884C;&#x4E0A;&#x8FF0;&#x547D;&#x4EE4;&#xFF09;&#x3002;</li>
+<li>pkg&#x7F16;&#x8BD1;&#x65F6;&#x751F;&#x6210;&#x7684;&#x4E2D;&#x95F4;&#x6587;&#x4EF6;&#xFF08;&#x6BD4;&#x5982;&#xFF1A;.a&#xFF09;</li>
+<li>bin&#x7F16;&#x8BD1;&#x540E;&#x751F;&#x6210;&#x7684;&#x53EF;&#x6267;&#x884C;&#x6587;&#x4EF6;&#xFF0C;&#x63A5;&#x4E0B;&#x6765;&#x5C31;&#x53EF;&#x4EE5;&#x8BD5;&#x8BD5;&#x4EE3;&#x7801;&#x7F16;&#x8BD1;&#x8FD0;&#x884C;&#x4E86;&#x3002;</li>
+</ul>
+<p>&#x6587;&#x4EF6;&#x540D;: hello.go&#xFF0C;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;fmt&quot;</span>
+<span class="hljs-keyword">func</span> main() {
+   fmt.Println(<span class="hljs-string">&quot;Hello, World!&quot;</span>)
+}
+</code></pre>
+<p>&#x4F7F;&#x7528;go&#x547D;&#x4EE4;&#x6267;&#x884C;&#x4EE5;&#x4E0A;&#x4EE3;&#x7801;&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p>D:\go-learn-notes&gt; go run &#x57FA;&#x7840;&#x8BED;&#x6CD5;/&#x73AF;&#x5883;&#x5B89;&#x88C5;/hello.go</p>
+<p>Hello&#xFF0C;World!</p>
+<h2 id="12-go&#x8BED;&#x8A00;&#x5F00;&#x53D1;&#x5DE5;&#x5177;">1.2 Go&#x8BED;&#x8A00;&#x5F00;&#x53D1;&#x5DE5;&#x5177;</h2>
+<p><strong>GoLand</strong></p>
+<p><img src="https://github.com/xinliangnote/Go/blob/master/00-&#x57FA;&#x7840;&#x8BED;&#x6CD5;/images/01-&#x73AF;&#x5883;&#x5B89;&#x88C5;/1_go_4.png" alt=""></p>
+<p>GoLand &#x662F; JetBrains &#x516C;&#x53F8;&#x63A8;&#x51FA;&#x7684; Go &#x8BED;&#x8A00;&#x96C6;&#x6210;&#x5F00;&#x53D1;&#x73AF;&#x5883;&#xFF0C;&#x4E0E;&#x6211;&#x4EEC;&#x7528;&#x7684; WebStorm&#x3001;PhpStorm&#x3001;PyCharm &#x662F;&#x4E00;&#x5BB6;&#xFF0C;&#x540C;&#x6837;&#x652F;&#x6301; Windows&#x3001;Linux&#x3001;macOS &#x7B49;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x3002;</p>
+<p>&#x4E0B;&#x8F7D;&#x5730;&#x5740;&#xFF1A;<a href="https://www.jetbrains.com/go/" target="_blank">https://www.jetbrains.com/go/</a></p>
+<p>&#x8F6F;&#x4EF6;&#x662F;&#x4ED8;&#x8D39;&#x7684;&#xFF0C;&#x4E0D;&#x8FC7;&#x60F3;&#x60F3;&#x529E;&#x6CD5;&#xFF0C;&#x8F6F;&#x4EF6;&#x53EF;&#x4EE5;&#x6C38;&#x4E45;&#x6FC0;&#x6D3B;&#x7684;&#x3002;</p>
+<h2 id="&#x5B66;&#x4E60;&#x7F51;&#x5740;">&#x5B66;&#x4E60;&#x7F51;&#x5740;</h2>
+<ul>
+<li>Go&#x8BED;&#x8A00;&#xFF1A;<a href="https://golang.org/" target="_blank">https://golang.org/</a></li>
+<li>Go&#x8BED;&#x8A00;&#x4E2D;&#x6587;&#x7F51;&#xFF1A;<a href="https://studygolang.com/" target="_blank">https://studygolang.com/</a></li>
+<li>Go&#x8BED;&#x8A00;&#x5305;&#x7BA1;&#x7406;&#xFF1A;<a href="https://gopm.io/" target="_blank">https://gopm.io/</a></li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../../" class="navigation navigation-prev " aria-label="Previous page: Post">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../数据类型/datatype.html" class="navigation navigation-next " aria-label="Next page: 数据类型">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"环境安装","level":"2.1","depth":1,"next":{"title":"数据类型","level":"2.2","depth":1,"path":"基础语法/数据类型/datatype.md","ref":"./基础语法/数据类型/datatype.md","articles":[]},"previous":{"title":"Post","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github@^2.0.0"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/Zuojiangtao/go-learn-notes"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"ZuoJiangtao","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Go学习记录","language":"zh-hans","gitbook":"*","description":"记录自己的Go学习历程"},"file":{"path":"基础语法/环境安装/install.md","mtime":"2022-09-28T02:19:04.474Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-09-28T02:19:40.931Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
