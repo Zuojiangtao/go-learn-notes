@@ -1,0 +1,468 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>指针 · Go学习笔记</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="ZuoJiangtao">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../函数/func.html" />
+    
+    
+    <link rel="prev" href="../Map/map.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    基础语法
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../环境安装/install.html">
+            
+                <a href="../环境安装/install.html">
+            
+                    
+                    环境安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../数据类型/datatype.html">
+            
+                <a href="../数据类型/datatype.html">
+            
+                    
+                    数据类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../流程控制/flow.html">
+            
+                <a href="../流程控制/flow.html">
+            
+                    
+                    流程控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../变量/var.html">
+            
+                <a href="../变量/var.html">
+            
+                    
+                    变量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../常量/const.html">
+            
+                <a href="../常量/const.html">
+            
+                    
+                    常量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../变量作用域/scope.html">
+            
+                <a href="../变量作用域/scope.html">
+            
+                    
+                    变量作用域
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../数组和切片/array_slice.html">
+            
+                <a href="../数组和切片/array_slice.html">
+            
+                    
+                    数组和切片
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../结构体/struct.html">
+            
+                <a href="../结构体/struct.html">
+            
+                    
+                    结构体
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../Map/map.html">
+            
+                <a href="../Map/map.html">
+            
+                    
+                    Map
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.10" data-path="pointer.html">
+            
+                <a href="pointer.html">
+            
+                    
+                    指针
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="../函数/func.html">
+            
+                <a href="../函数/func.html">
+            
+                    
+                    函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >指针</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="&#x6307;&#x9488;">&#x6307;&#x9488;</h2>
+<p>&#x6211;&#x4EEC;&#x90FD;&#x77E5;&#x9053;&#xFF0C;&#x53D8;&#x91CF;&#x662F;&#x4E00;&#x79CD;&#x4F7F;&#x7528;&#x65B9;&#x4FBF;&#x7684;&#x5360;&#x4F4D;&#x7B26;&#xFF0C;&#x7528;&#x4E8E;&#x5F15;&#x7528;&#x8BA1;&#x7B97;&#x673A;&#x5185;&#x5B58;&#x5730;&#x5740;&#x3002;</p>
+<p>Go &#x8BED;&#x8A00;&#x7684;&#x53D6;&#x5730;&#x5740;&#x7B26;&#x662F; <strong>&amp;</strong>&#xFF0C;&#x653E;&#x5230;&#x4E00;&#x4E2A;&#x53D8;&#x91CF;&#x524D;&#x4F7F;&#x7528;&#x5C31;&#x4F1A;&#x8FD4;&#x56DE;&#x76F8;&#x5E94;&#x53D8;&#x91CF;&#x7684;&#x5185;&#x5B58;&#x5730;&#x5740;&#x3002;</p>
+<p>&#x4EE5;&#x4E0B;&#x5B9E;&#x4F8B;&#x6F14;&#x793A;&#x4E86;&#x53D8;&#x91CF;&#x5728;&#x5185;&#x5B58;&#x4E2D;&#x5730;&#x5740;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;fmt&quot;</span>
+
+<span class="hljs-keyword">func</span> main() {
+    <span class="hljs-keyword">var</span> a = <span class="hljs-number">100</span>
+
+    fmt.Println(<span class="hljs-string">&quot;&#x53D8;&#x91CF;a&#x7684;&#x5730;&#x5740;&#xFF1A;&quot;</span>, &amp;a)
+}
+</code></pre>
+<p>&#x5F97;&#x5230;&#xFF1A; &#x53D8;&#x91CF;a&#x7684;&#x5730;&#x5740;&#xFF1A; 0xc00001a098</p>
+<h3 id="&#x6307;&#x9488;&#x5B9A;&#x4E49;">&#x6307;&#x9488;&#x5B9A;&#x4E49;</h3>
+<p>&#x4E00;&#x4E2A;&#x6307;&#x9488;&#x53D8;&#x91CF;&#x6307;&#x5411;&#x4E86;&#x4E00;&#x4E2A;&#x503C;&#x7684;&#x5185;&#x5B58;&#x5730;&#x5740;&#x3002;</p>
+<p>&#x7C7B;&#x4F3C;&#x4E8E;&#x53D8;&#x91CF;&#x548C;&#x5E38;&#x91CF;&#xFF0C;&#x5728;&#x4F7F;&#x7528;&#x6307;&#x9488;&#x524D;&#x4F60;&#x9700;&#x8981;&#x58F0;&#x660E;&#x6307;&#x9488;&#x3002;&#x6307;&#x9488;&#x58F0;&#x660E;&#x683C;&#x5F0F;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">var</span> ip *<span class="hljs-keyword">int</span> <span class="hljs-comment">/* &#x6307;&#x5411;&#x6574;&#x578B; */</span>
+<span class="hljs-keyword">var</span> fq *float <span class="hljs-comment">/* &#x6307;&#x5411;&#x6D6E;&#x70B9;&#x578B; */</span>
+</code></pre>
+<p><strong>&#x6307;&#x9488;&#x7684;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;&#xFF1A;</strong></p>
+<ul>
+<li><p>&#x5B9A;&#x4E49;&#x6307;&#x9488;&#x53D8;&#x91CF;&#xFF1B;</p>
+</li>
+<li><p>&#x4E3A;&#x6307;&#x9488;&#x53D8;&#x91CF;&#x8D4B;&#x503C;&#xFF1B;</p>
+</li>
+<li><p>&#x8BBF;&#x95EE;&#x6307;&#x9488;&#x53D8;&#x91CF;&#x4E2D;&#x6307;&#x5411;&#x5730;&#x5740;&#x7684;&#x503C;&#xFF1B;</p>
+</li>
+<li><p>&#x5728;&#x6307;&#x9488;&#x7C7B;&#x578B;&#x524D;&#x9762;&#x52A0;&#x4E0A;*&#x53F7;&#x6765;&#x83B7;&#x53D6;&#x6307;&#x9488;&#x6240;&#x6307;&#x5411;&#x7684;&#x5185;&#x5BB9;&#x3002;</p>
+</li>
+</ul>
+<p>&#x5728;Go&#x8BED;&#x8A00;&#x4E2D;&#xFF0C;&#x6307;&#x9488;&#x7C7B;&#x578B;&#x8868;&#x793A;&#x6307;&#x5411;&#x7ED9;&#x5B9A;&#x7C7B;&#x578B;&#xFF08;&#x79F0;&#x4E3A;&#x6307;&#x9488;&#x7684;&#x57FA;&#x7840;&#x7C7B;&#x578B;&#xFF09;&#x7684;&#x53D8;&#x91CF;&#x7684;&#x6240;&#x6709;&#x6307;&#x9488;&#x7684;&#x96C6;&#x5408;&#x3002; &#x7B26;&#x53F7; * &#x53EF;&#x4EE5;&#x653E;&#x5728;&#x4E00;&#x4E2A;&#x7C7B;&#x578B;&#x524D;&#xFF0C;&#x5982; *T&#xFF0C;&#x90A3;&#x4E48;&#x5B83;&#x5C06;&#x4EE5;&#x7C7B;&#x578B;T&#x4E3A;&#x57FA;&#x7840;&#xFF0C;&#x751F;&#x6210;&#x6307;&#x9488;&#x7C7B;&#x578B;*T&#x3002;&#x672A;&#x521D;&#x59CB;&#x5316;&#x6307;&#x9488;&#x7684;&#x503C;&#x4E3A;nil&#x3002;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">var</span> a <span class="hljs-keyword">int</span> = <span class="hljs-number">100</span> <span class="hljs-comment">// &#x58F0;&#x660E;&#x5B9E;&#x9645;&#x53D8;&#x91CF;</span>
+
+    fmt.Println(<span class="hljs-string">&quot;&#x53D8;&#x91CF;a&#x7684;&#x5730;&#x5740;&#xFF1A;&quot;</span>, &amp;a)
+
+    <span class="hljs-keyword">var</span> ip *<span class="hljs-keyword">int</span> <span class="hljs-comment">// &#x58F0;&#x660E;&#x4E00;&#x4E2A;&#x6307;&#x9488;</span>
+    ip = &amp;a
+
+    fmt.Println(<span class="hljs-string">&quot;ip&#x53D8;&#x91CF;&#x5B58;&#x50A8;&#x7684;&#x6307;&#x9488;&#x5730;&#x5740;&#xFF1A;&quot;</span>, ip)
+    fmt.Println(<span class="hljs-string">&quot;*ip&#x53D8;&#x91CF;&#x7684;&#x503C;&#xFF1A;&quot;</span>, *ip)
+</code></pre>
+<p><strong>&#x6CE8;&#x610F;&#xFF1A;&#x4E0D;&#x80FD;&#x5F97;&#x5230;&#x4E00;&#x4E2A;&#x6570;&#x5B57;&#x6216;&#x5E38;&#x91CF;&#x7684;&#x5730;&#x5740;</strong>&#xFF0C;&#x4E0B;&#x9762;&#x7684;&#x5199;&#x6CD5;&#x662F;&#x9519;&#x8BEF;&#x7684;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">const</span> i = <span class="hljs-number">5</span>
+ptr := &amp;i <span class="hljs-comment">// error: cannot take the address of i</span>
+ptr2 := &amp;<span class="hljs-number">10</span> <span class="hljs-comment">// error: cannot take the address of 10</span>
+</code></pre>
+<blockquote>
+<p>&#x867D;&#x7136;Go &#x8BED;&#x8A00;&#x548C; C&#x3001;C++ &#x8FD9;&#x4E9B;&#x8BED;&#x8A00;&#x4E00;&#x6837;&#xFF0C;&#x90FD;&#x6709;&#x6307;&#x9488;&#x7684;&#x6982;&#x5FF5;&#xFF0C;&#x4F46;&#x662F;&#x6307;&#x9488;&#x8FD0;&#x7B97;&#x5728;&#x8BED;&#x6CD5;&#x4E0A;&#x662F;&#x4E0D;&#x5141;&#x8BB8;&#x7684;&#x3002;&#x8FD9;&#x6837;&#x505A;&#x7684;&#x76EE;&#x7684;&#x662F;&#x4FDD;&#x8BC1;&#x5185;&#x5B58;&#x5B89;&#x5168;&#x3002;&#x4ECE;&#x8FD9;&#x4E00;&#x70B9;&#x770B;&#xFF0C;Go &#x8BED;&#x8A00;&#x7684;&#x6307;&#x9488;&#x57FA;&#x672C;&#x5C31;&#x662F;&#x4E00;&#x79CD;&#x5F15;&#x7528;&#x3002;</p>
+</blockquote>
+<p>&#x5982;&#x679C;&#x4EE3;&#x7801;&#x5728;&#x8FD0;&#x884C;&#x4E2D;&#x9700;&#x8981;&#x5360;&#x7528;&#x5927;&#x91CF;&#x7684;&#x5185;&#x5B58;&#xFF0C;&#x6216;&#x5F88;&#x591A;&#x53D8;&#x91CF;&#xFF0C;&#x6216;&#x8005;&#x4E24;&#x8005;&#x90FD;&#x6709;&#xFF0C;&#x8FD9;&#x65F6;&#x4F7F;&#x7528;&#x6307;&#x9488;&#x4F1A;&#x51CF;&#x5C11;&#x5185;&#x5B58;&#x5360;&#x7528;&#x548C;&#x63D0;&#x9AD8;&#x8FD0;&#x884C;&#x6548;&#x7387;&#x3002;&#x88AB;&#x6307;&#x5411;&#x7684;&#x53D8;&#x91CF;&#x4FDD;&#x5B58;&#x5728;&#x5185;&#x5B58;&#x4E2D;&#xFF0C;&#x76F4;&#x5230;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x6307;&#x9488;&#x6307;&#x5411;&#x5B83;&#x4EEC;&#x3002;&#x6240;&#x4EE5;&#x4ECE;&#x5B83;&#x4EEC;&#x88AB;&#x521B;&#x5EFA;&#x5F00;&#x59CB;&#x5C31;&#x5177;&#x6709;&#x76F8;&#x4E92;&#x72EC;&#x7ACB;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x3002;</p>
+<p>&#x5185;&#x5B58;&#x7BA1;&#x7406;&#x4E2D;&#x7684;&#x5185;&#x5B58;&#x533A;&#x57DF;&#x4E00;&#x822C;&#x5305;&#x62EC;&#x5806;&#x5185;&#x5B58;&#xFF08;heap&#xFF09;&#x548C;&#x6808;&#x5185;&#x5B58;&#xFF08;stack&#xFF09;&#xFF0C; &#x6808;&#x5185;&#x5B58;&#x4E3B;&#x8981;&#x7528;&#x6765;&#x5B58;&#x50A8;&#x5F53;&#x524D;&#x8C03;&#x7528;&#x6808;&#x7528;&#x5230;&#x7684;&#x7B80;&#x5355;&#x7C7B;&#x578B;&#x6570;&#x636E;&#xFF0C;&#x5982;string&#xFF0C;bool&#xFF0C;int&#xFF0C;float &#x7B49;&#x3002;&#x8FD9;&#x4E9B;&#x7C7B;&#x578B;&#x57FA;&#x672C;&#x4E0A;&#x8F83;&#x5C11;&#x5360;&#x7528;&#x5185;&#x5B58;&#xFF0C;&#x5BB9;&#x6613;&#x56DE;&#x6536;&#xFF0C;&#x56E0;&#x6B64;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x590D;&#x5236;&#xFF0C;&#x8FDB;&#x884C;&#x5783;&#x573E;&#x56DE;&#x6536;&#x65F6;&#x4E5F;&#x6BD4;&#x8F83;&#x5BB9;&#x6613;&#x505A;&#x9488;&#x5BF9;&#x6027;&#x7684;&#x4F18;&#x5316;&#x3002; &#x800C;&#x590D;&#x6742;&#x7684;&#x590D;&#x5408;&#x7C7B;&#x578B;&#x5360;&#x7528;&#x7684;&#x5185;&#x5B58;&#x5F80;&#x5F80;&#x76F8;&#x5BF9;&#x8F83;&#x5927;&#xFF0C;&#x5B58;&#x50A8;&#x5728;&#x5806;&#x5185;&#x5B58;&#x4E2D;&#xFF0C;&#x5783;&#x573E;&#x56DE;&#x6536;&#x9891;&#x7387;&#x76F8;&#x5BF9;&#x8F83;&#x4F4E;&#xFF0C;&#x4EE3;&#x4EF7;&#x4E5F;&#x8F83;&#x5927;&#xFF0C;&#x56E0;&#x6B64;&#x4F20;&#x5F15;&#x7528;&#x6216;&#x6307;&#x9488;&#x53EF;&#x4EE5;&#x907F;&#x514D;&#x8FDB;&#x884C;&#x6210;&#x672C;&#x8F83;&#x9AD8;&#x7684;&#x590D;&#x5236;&#x64CD;&#x4F5C;&#xFF0C;&#x5E76;&#x4E14;&#x8282;&#x7701;&#x5185;&#x5B58;&#xFF0C;&#x63D0;&#x9AD8;&#x7A0B;&#x5E8F;&#x8FD0;&#x884C;&#x6548;&#x7387;&#x3002;</p>
+<h3 id="&#x7A7A;&#x6307;&#x9488;">&#x7A7A;&#x6307;&#x9488;</h3>
+<p>&#x5F53;&#x4E00;&#x4E2A;&#x6307;&#x9488;&#x88AB;&#x5B9A;&#x4E49;&#x540E;&#x6CA1;&#x6709;&#x5206;&#x914D;&#x5230;&#x4EFB;&#x4F55;&#x53D8;&#x91CF;&#x65F6;&#xFF0C;&#x5B83;&#x7684;&#x503C;&#x4E3A; nil&#x3002;</p>
+<p>nil &#x6307;&#x9488;&#x4E5F;&#x79F0;&#x4E3A;&#x7A7A;&#x6307;&#x9488;&#x3002;</p>
+<p>nil&#x5728;&#x6982;&#x5FF5;&#x4E0A;&#x548C;&#x5176;&#x5B83;&#x8BED;&#x8A00;&#x7684;null&#x3001;None&#x3001;nil&#x3001;NULL&#x4E00;&#x6837;&#xFF0C;&#x90FD;&#x6307;&#x4EE3;&#x96F6;&#x503C;&#x6216;&#x7A7A;&#x503C;&#x3002;</p>
+<p>&#x4E00;&#x4E2A;&#x6307;&#x9488;&#x53D8;&#x91CF;&#x901A;&#x5E38;&#x7F29;&#x5199;&#x4E3A; ptr&#x3002;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;fmt&quot;</span>
+
+<span class="hljs-keyword">func</span> main() {
+   <span class="hljs-keyword">var</span>  ptr *<span class="hljs-keyword">int</span>
+
+   fmt.Printf(<span class="hljs-string">&quot;ptr &#x7684;&#x503C;&#x4E3A; : %x\n&quot;</span>, ptr  )
+}
+</code></pre>
+<p>&#x4EE5;&#x4E0A;&#x5B9E;&#x4F8B;&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#x4E3A;&#xFF1A;</p>
+<p>ptr &#x7684;&#x503C;&#x4E3A; : 0</p>
+<p><strong>&#x7A7A;&#x6307;&#x9488;&#x5224;&#x65AD;</strong>&#xFF1A;</p>
+<p>if(ptr != nil)     /<em> ptr &#x4E0D;&#x662F;&#x7A7A;&#x6307;&#x9488; </em>/
+if(ptr == nil)    /<em> ptr &#x662F;&#x7A7A;&#x6307;&#x9488; </em>/</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../Map/map.html" class="navigation navigation-prev " aria-label="Previous page: Map">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../函数/func.html" class="navigation navigation-next " aria-label="Next page: 函数">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"指针","level":"1.2.10","depth":2,"next":{"title":"函数","level":"1.2.11","depth":2,"path":"基础语法/函数/func.md","ref":"./基础语法/函数/func.md","articles":[]},"previous":{"title":"Map","level":"1.2.9","depth":2,"path":"基础语法/Map/map.md","ref":"./基础语法/Map/map.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github@^2.0.0"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/Zuojiangtao/go-learn-notes"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"ZuoJiangtao","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Go学习笔记","language":"zh-hans","gitbook":"*","description":"记录自己的Go学习历程"},"file":{"path":"基础语法/指针/pointer.md","mtime":"2022-10-17T09:08:02.401Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-10-17T09:08:43.344Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
